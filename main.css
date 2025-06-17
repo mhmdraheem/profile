@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background: linear-gradient(180deg, #e7cfc1 0%, #e4d9b9 11%, #ede7de 22%, #e9e0cc 33%, #ffffff 76%);
+  color: #5a2402;
+  scroll-behavior: smooth;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 6rem 0;
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 0 20px 6rem 20px;
+  }
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 700;
+  text-align: center;
+}
+
+h2 {
+  padding: 0;
+  margin: 0 0 6rem 0;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.h2-title {
+  position: relative;
+}
+.h2-title .underline {
+  height: 15px;
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translate(50%);
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 300;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 600px;
+}
+
+.header {
+  display: none;
+  padding: 1.2rem 2rem;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.3s ease;
+  border-radius: 100px;
+}
+.header ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.header ul li a {
+  font-weight: 300;
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  transition: background 0.2s;
+  border-radius: 100px;
+}
+.header ul li a:hover {
+  background: #f5f5f5;
+}
+.header.scrolled {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero .container {
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.hero .hero-title {
+  position: relative;
+}
+.hero .star-right {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 85px;
+}
+.hero .star-left {
+  display: none;
+  position: absolute;
+  bottom: -60px;
+  left: -82px;
+  width: 50px;
+}
+
+.work .ornament {
+  width: 60px;
+  height: 4px;
+  background: #5a2402;
+  margin: 0.5rem auto 2rem;
+}
+.work .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(12, 100px);
+  gap: 4rem;
+}
+@media (max-width: 992px) {
+  .work .cards {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(15, 100px);
+    gap: 4rem;
+  }
+}
+.work .egycast {
+  background-color: #f0b695;
+  grid-row: span 4;
+}
+.work .webmart {
+  background-color: #9adfd5;
+  grid-row: span 5;
+}
+.work .train-your-brain {
+  background-color: #7d91e0;
+  grid-row: span 4;
+}
+.work .lorem {
+  background-color: #b877ca;
+  grid-row: span 3;
+}
+.work .panel {
+  background-color: #99dae7;
+  grid-column: span 2;
+  grid-row: span 3;
+}
+.work .card {
+  border-radius: 50px;
+}
+@media (max-width: 992px) {
+  .work .card {
+    grid-column: 1/span 1;
+    grid-row: span 3;
+  }
+}
+
+.about .about-content {
+  text-align: center;
+}
+.about .about-content img {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  margin-top: 1rem;
+}
+.about .about-content .button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #5a2402;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.about .ornament {
+  width: 60px;
+  height: 4px;
+  background: #5a2402;
+  margin: 0.5rem auto 2rem;
+}
+
+.contact {
+  background: #5a2402;
+  color: white;
+  text-align: center;
+}
+.contact form {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+.contact form textarea {
+  min-height: 150px;
+}
+.contact form button {
+  padding: 1rem;
+  background: white;
+  color: #5a2402;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.footer {
+  background: #5a2402;
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+}/*# sourceMappingURL=main.css.map */
