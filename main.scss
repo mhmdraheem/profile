@@ -14,7 +14,7 @@ body {
   padding: 0;
   direction: rtl;
   background: $gradient;
-  color: $primary;
+  color: #000;
   scroll-behavior: smooth;
 }
 
@@ -47,14 +47,26 @@ h1 {
   font-size: clamp(56px, 10vw, 120px);
   font-weight: 700;
   text-align: center;
+  color: $primary;
 }
 
 h2 {
   padding: 0;
-  margin: 0 0 6rem 0;
+  @media (max-width: 767px) {
+    margin: 0 0 4rem 0;
+  }
   font-size: clamp(40px, 6vw, 80px);
   font-weight: 700;
   text-align: center;
+  color: $primary;
+}
+
+h3 {
+  padding: 0;
+  margin: 0 0 2rem 0;
+  font-size: clamp(30px, 6vw, 40px);
+  font-weight: 700;
+  text-align: right;
 }
 
 .h2-title {
@@ -74,43 +86,45 @@ p {
   font-size: clamp(16px, 2vw, 18px);
   font-weight: 300;
   line-height: 1.7;
-  text-align: center;
   max-width: 600px;
 }
 
 .header {
-  display: none;
-  padding: 1.2rem 2rem;
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: -moz-fit-content;
-  width: fit-content;
+  left: 0;
+  width: 100%;
   z-index: 100;
   background: transparent;
-  transition: background 0.3s ease;
-  border-radius: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
-  ul {
+  nav {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    background-color: transparent;
+    border-radius: 100px;
+    transition: background 0.3s ease;
+    padding: 0.5rem 1rem;
+  }
 
-    li a {
-      font-weight: 300;
-      color: #000;
-      padding: 0.5rem 1.5rem;
-      transition: background 0.2s;
-      border-radius: 100px;
-
-      &:hover {
-        background: #f5f5f5;
-      }
+  a {
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: 300;
+    color: #000;
+    padding: 0.5rem 1.2rem;
+    transition: background 0.2s;
+    border-radius: 100px;
+    display: block;
+    text-align: center;
+    &:hover {
+      background: #f5f5f5;
     }
   }
 
-  &.scrolled {
+  &.scrolled nav {
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -118,13 +132,17 @@ p {
 
 .hero {
   .container {
-    padding-top: 200px;
+    padding-top: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
     gap: 2rem;
+
+    @media (max-width: 767px) {
+      padding-top: 8rem;
+    }
   }
 
   .hero-title {
@@ -132,19 +150,10 @@ p {
   }
 
   .star-right {
-    // display: none;
     position: absolute;
     top: -50px;
-    right: 0;
-    width: 85px;
-  }
-
-  .star-left {
-    display: none;
-    position: absolute;
-    bottom: -60px;
-    left: -82px;
-    width: 50px;
+    right: -40px;
+    width: clamp(50px, 8vw, 85px);
   }
 }
 
@@ -169,6 +178,17 @@ p {
     }
   }
 
+  .project-img {
+    flex: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: top right;
+    }
+  }
+
   .egycast {
     background-color: #f0b695;
     grid-row: span 4;
@@ -177,6 +197,7 @@ p {
   .webmart {
     background-color: #9adfd5;
     grid-row: span 5;
+    padding: 3rem 3rem 0 3rem;
   }
 
   .train-your-brain {
@@ -193,14 +214,42 @@ p {
     background-color: #99dae7;
     grid-column: span 2;
     grid-row: span 3;
+    width: 80%;
+    margin: 0 auto;
+
+    @media (max-width: 992px) {
+      width: 100%;
+    }
   }
 
   .card {
+    color: #000;
     border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: transform 0.3s;
     @media (max-width: 992px) {
       grid-column: 1 / span 1;
       grid-row: span 3;
     }
+
+    &.--right-padded {
+      padding: 3rem 3rem 0 0;
+    }
+
+    &.--side-padded {
+      padding: 3rem 3rem 0 3rem;
+    }
+
+    &:hover {
+      // cursor: pointer;
+      transform: scale(1.01);
+    }
+  }
+
+  .project-text {
   }
 }
 

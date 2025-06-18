@@ -9,7 +9,7 @@ body {
   padding: 0;
   direction: rtl;
   background: linear-gradient(180deg, #e7cfc1 0%, #e4d9b9 11%, #ede7de 22%, #e9e0cc 33%, #ffffff 76%);
-  color: #5a2402;
+  color: #000;
   scroll-behavior: smooth;
 }
 
@@ -43,14 +43,28 @@ h1 {
   font-size: clamp(56px, 10vw, 120px);
   font-weight: 700;
   text-align: center;
+  color: #5a2402;
 }
 
 h2 {
   padding: 0;
-  margin: 0 0 6rem 0;
   font-size: clamp(40px, 6vw, 80px);
   font-weight: 700;
   text-align: center;
+  color: #5a2402;
+}
+@media (max-width: 767px) {
+  h2 {
+    margin: 0 0 4rem 0;
+  }
+}
+
+h3 {
+  padding: 0;
+  margin: 0 0 2rem 0;
+  font-size: clamp(30px, 6vw, 40px);
+  font-weight: 700;
+  text-align: right;
 }
 
 .h2-title {
@@ -70,46 +84,49 @@ p {
   font-size: clamp(16px, 2vw, 18px);
   font-weight: 300;
   line-height: 1.7;
-  text-align: center;
   max-width: 600px;
 }
 
 .header {
-  display: none;
-  padding: 1.2rem 2rem;
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: -moz-fit-content;
-  width: fit-content;
+  left: 0;
+  width: 100%;
   z-index: 100;
   background: transparent;
-  transition: background 0.3s ease;
-  border-radius: 100px;
-}
-.header ul {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: flex-end;
+  justify-content: center;
 }
-.header ul li a {
+.header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+.header a {
+  font-size: clamp(16px, 2vw, 18px);
   font-weight: 300;
   color: #000;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.2rem;
   transition: background 0.2s;
   border-radius: 100px;
+  display: block;
+  text-align: center;
 }
-.header ul li a:hover {
+.header a:hover {
   background: #f5f5f5;
 }
-.header.scrolled {
+.header.scrolled nav {
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hero .container {
-  padding-top: 200px;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,21 +134,19 @@ p {
   justify-content: center;
   gap: 2rem;
 }
+@media (max-width: 767px) {
+  .hero .container {
+    padding-top: 8rem;
+  }
+}
 .hero .hero-title {
   position: relative;
 }
 .hero .star-right {
   position: absolute;
   top: -50px;
-  right: 0;
-  width: 85px;
-}
-.hero .star-left {
-  display: none;
-  position: absolute;
-  bottom: -60px;
-  left: -82px;
-  width: 50px;
+  right: -40px;
+  width: clamp(50px, 8vw, 85px);
 }
 
 .work .ornament {
@@ -153,6 +168,18 @@ p {
     gap: 4rem;
   }
 }
+.work .project-img {
+  flex: 1;
+}
+.work .project-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  -o-object-position: top right;
+     object-position: top right;
+}
 .work .egycast {
   background-color: #f0b695;
   grid-row: span 4;
@@ -160,6 +187,7 @@ p {
 .work .webmart {
   background-color: #9adfd5;
   grid-row: span 5;
+  padding: 3rem 3rem 0 3rem;
 }
 .work .train-your-brain {
   background-color: #7d91e0;
@@ -173,9 +201,22 @@ p {
   background-color: #99dae7;
   grid-column: span 2;
   grid-row: span 3;
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .work .panel {
+    width: 100%;
+  }
 }
 .work .card {
+  color: #000;
   border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  transition: transform 0.3s;
 }
 @media (max-width: 992px) {
   .work .card {
@@ -183,7 +224,15 @@ p {
     grid-row: span 3;
   }
 }
-
+.work .card.--right-padded {
+  padding: 3rem 3rem 0 0;
+}
+.work .card.--side-padded {
+  padding: 3rem 3rem 0 3rem;
+}
+.work .card:hover {
+  transform: scale(1.01);
+}
 .about .about-content {
   text-align: center;
 }
