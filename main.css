@@ -20,6 +20,7 @@ ul {
 }
 
 a {
+  color: #000;
   text-decoration: none;
 }
 
@@ -84,7 +85,6 @@ p {
   font-size: clamp(16px, 2vw, 18px);
   font-weight: 300;
   line-height: 1.7;
-  max-width: 600px;
 }
 
 .header {
@@ -158,7 +158,7 @@ p {
 .work .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(12, 100px);
+  grid-template-rows: repeat(11, 100px);
   gap: 4rem;
 }
 @media (max-width: 992px) {
@@ -233,24 +233,90 @@ p {
 .work .card:hover {
   transform: scale(1.01);
 }
+
 .about .about-content {
-  text-align: center;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 4rem;
+}
+@media (max-width: 776px) {
+  .about .about-content {
+    gap: 2rem;
+    flex-direction: column;
+  }
+}
+.about .about-content .img-wrapper {
+  overflow: hidden;
+  max-height: 350px;
 }
 .about .about-content img {
-  width: 120px;
-  height: 120px;
-  border-radius: 100px;
-  margin-top: 1rem;
+  border-radius: 40% 40% 0 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+  -o-object-position: top right;
+  object-position: top right;
+  max-width: 350px;
+}
+@media (max-width: 776px) {
+  .about .about-content img {
+    max-width: 100%;
+    border-radius: 50px 50px 0 0;
+  }
+}
+.about .about-content .text {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 776px) {
+  .about .about-content .text {
+    align-items: center;
+  }
+}
+.about .about-content .text p {
+  max-width: 500px;
+  flex: 1;
+}
+@media (max-width: 776px) {
+  .about .about-content .text p {
+    max-width: 100%;
+  }
 }
 .about .about-content .button {
-  display: inline-block;
-  margin-top: 1rem;
+  display: flex;
   padding: 0.75rem 1.5rem;
-  background: #5a2402;
-  color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border: 1px solid black;
+  font-size: clamp(16px, 2vw, 18px);
   font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: 0.3s;
+}
+.about .about-content .button .save-icon {
+  width: 32px;
+  height: 32px;
+}
+.about .about-content .button:hover {
+  background-color: #5a2402;
+  color: #fff;
+}
+.about .about-content .button:hover .save-icon {
+  color: #fff;
+}
+@media (max-width: 776px) {
+  .about .about-content .button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 .about .ornament {
   width: 60px;
