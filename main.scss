@@ -33,11 +33,11 @@ a {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 6rem 0 6rem 0;
+  padding: 5rem 0 5rem 0;
 
   @media (max-width: 767px) {
     width: 100%;
-    padding: 6rem 20px 6rem 20px;
+    padding: 5rem 20px 5rem 20px;
   }
 }
 
@@ -149,7 +149,9 @@ p {
   .hero-title {
     position: relative;
   }
-
+  p {
+    max-width: 500px;
+  }
   .star-right {
     position: absolute;
     top: -50px;
@@ -251,6 +253,11 @@ p {
 }
 
 .about {
+  .container {
+    @media (min-width: 767px) {
+      padding-bottom: 8rem;
+    }
+  }
   .about-content {
     display: flex;
     align-items: stretch;
@@ -348,31 +355,32 @@ p {
   background: $primary;
   color: white;
 
-  .container {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    align-items: flex-start;
-    justify-content: center;
+  .arrow-ornament {
+    position: absolute;
+    top: 0;
+    left: clamp(60px, 10vw, 180px);
+    transform: translate(0, -50%);
+    width: clamp(100px, 12vw, 180px);
+  }
 
-    @media (max-width: 776px) {
-      flex-direction: column;
-      align-items: center;
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    @media (min-width: 767px) {
+      // padding-top: 8rem;
     }
   }
 
   .text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    @media (max-width: 776px) {
-      align-items: center;
-    }
+    text-align: center;
   }
 
   h2 {
-    margin-bottom: 2rem;
     color: white;
+    margin: 0 0 2rem 0;
   }
 
   p {

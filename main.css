@@ -28,12 +28,12 @@ a {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 6rem 0 6rem 0;
+  padding: 5rem 0 5rem 0;
 }
 @media (max-width: 767px) {
   .container {
     width: 100%;
-    padding: 6rem 20px 6rem 20px;
+    padding: 5rem 20px 5rem 20px;
   }
 }
 
@@ -143,6 +143,9 @@ p {
 .hero .hero-title {
   position: relative;
 }
+.hero p {
+  max-width: 500px;
+}
 .hero .star-right {
   position: absolute;
   top: -50px;
@@ -235,6 +238,11 @@ p {
   transform: scale(1.01);
 }
 
+@media (min-width: 767px) {
+  .about .container {
+    padding-bottom: 8rem;
+  }
+}
 .about .about-content {
   display: flex;
   align-items: stretch;
@@ -330,32 +338,26 @@ p {
   background: #5a2402;
   color: white;
 }
+.contact .arrow-ornament {
+  position: absolute;
+  top: 0;
+  left: clamp(60px, 10vw, 180px);
+  transform: translate(0, -50%);
+  width: clamp(100px, 12vw, 180px);
+}
 .contact .container {
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
-  align-items: flex-start;
-  justify-content: center;
-}
-@media (max-width: 776px) {
-  .contact .container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.contact .text {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 4rem;
+  align-items: center;
 }
-@media (max-width: 776px) {
-  .contact .text {
-    align-items: center;
-  }
+.contact .text {
+  text-align: center;
 }
 .contact h2 {
-  margin-bottom: 2rem;
   color: white;
+  margin: 0 0 2rem 0;
 }
 .contact p {
   max-width: 500px;
