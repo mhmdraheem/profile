@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/9b220e24a6.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header id="header" class="header">
@@ -112,9 +111,8 @@
               <br />
               في الوقت الحالي اركز على العمل الحر وتقديم حلول متكاملة لأصحاب الأعمال و الشركات الناشئة.
             </p>
-            <a href="#" class="button">
+            <a href="/assets/resume.pdf" target="_blank" class="button">
               سيرتي الذاتية
-              <!-- <img src="assets/download.svg" class="save-icon" alt="" /> -->
               <svg class="save-icon" viewBox="0 0 56 56" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M14.25 46.3334H41.75M28 9.66675V37.1667M28 37.1667L36.0208 29.1459M28 37.1667L19.9792 29.1459"
@@ -124,7 +122,6 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <!-- <i class="fa-solid fa-download save-icon"></i> -->
             </a>
           </div>
         </div>
@@ -158,11 +155,45 @@
             واقع ملموس يخدم اهدافك وطموحاتك.
           </p>
         </div>
-        <form>
-          <input type="text" placeholder="اسمك" />
-          <input type="email" placeholder="بريدك الإلكتروني" />
-          <textarea placeholder="اكتب سؤالك، استفسارك، أو ملاحظتك هنا"></textarea>
-          <button type="submit">تواصل معي</button>
+        <form id="contactForm" method="POST">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="اسمك"
+            required
+            minlength="2"
+            maxlength="100"
+            pattern="[\u0600-\u06FFa-zA-Z\s]+"
+            title="الاسم يجب أن يحتوي على أحرف عربية أو إنجليزية فقط"
+          />
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="بريدك الإلكتروني"
+            required
+            maxlength="254"
+            title="يرجى إدخال بريد إلكتروني صحيح"
+          />
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="اكتب سؤالك، استفسارك، أو ملاحظتك هنا"
+            required
+            minlength="10"
+            maxlength="1000"
+            rows="5"
+            title="الرسالة يجب أن تكون بين 10 و 1000 حرف"
+          ></textarea>
+
+          <p class="form-status" id="form-status"></p>
+          <button type="submit" id="submit-btn">
+            <span class="btn-text">تواصل معي</span>
+            <span class="btn-loading">جاري الإرسال...</span>
+          </button>
         </form>
       </div>
     </section>
@@ -173,5 +204,6 @@
       </div>
     </footer>
     <script src="main.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>

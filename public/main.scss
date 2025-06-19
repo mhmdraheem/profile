@@ -18,6 +18,10 @@ body {
   scroll-behavior: smooth;
 }
 
+button {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -247,7 +251,8 @@ p {
     }
 
     &:hover {
-      transform: scale(1.01);
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
   }
 }
@@ -408,7 +413,7 @@ p {
       font-family: $font;
       outline: none;
       &::placeholder {
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.5);
       }
     }
 
@@ -425,6 +430,28 @@ p {
       border: none;
       cursor: pointer;
     }
+  }
+
+  #submit-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .btn-loading {
+    display: none;
+  }
+
+  #submit-btn.loading .btn-text {
+    display: none;
+  }
+
+  #submit-btn.loading .btn-loading {
+    display: inline;
   }
 }
 
